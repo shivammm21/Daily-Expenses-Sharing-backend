@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 @Table(name = "expenses")
 public class Expense {
@@ -28,7 +29,9 @@ public class Expense {
     private Date date;
 
     @ElementCollection
-    private List<String> participants; // List of user IDs or names
+    @CollectionTable(name = "expense_participants", joinColumns = @JoinColumn(name = "expense_id"))
+    private List<Participant> participants;
+    // List of user IDs or names
 
     @Enumerated(EnumType.STRING)
     private SplitMethod splitMethod;
@@ -37,7 +40,7 @@ public class Expense {
     public Expense() {
     }
 
-    public Expense(String description, BigDecimal amount, Date date, List<String> participants, SplitMethod splitMethod) {
+    public Expense(String description, BigDecimal amount, Date date, List<Participant> participants, SplitMethod splitMethod) {
         this.description = description;
         this.amount = amount;
         this.date = date;
@@ -78,11 +81,11 @@ public class Expense {
         this.date = date;
     }
 
-    public List<String> getParticipants() {
+    public List<Participant> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<String> participants) {
+    public void setParticipants(List<Participant> participants) {
         this.participants = participants;
     }
 

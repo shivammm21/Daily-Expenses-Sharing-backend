@@ -72,6 +72,7 @@ public class PageController {
         return ResponseEntity.ok(expenses);
     }
 
+    /*
     // Download balance sheet as a CSV file
     @GetMapping("/balancesheet")
     public ResponseEntity<byte[]> downloadBalanceSheet() {
@@ -80,6 +81,8 @@ public class PageController {
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=balancesheet.csv");
         return ResponseEntity.ok().headers(headers).body(csvData);
     }
+
+     */
 
 
 }
