@@ -12,7 +12,6 @@ import java.util.List;
 public interface ExpenseRepository extends JpaRepository<Expense, Long> {
     List<Expense> findByParticipantsContaining(String participant);
 
-        // JPQL query to search for a specific userId in the participants list
         @Query("SELECT e FROM Expense e JOIN e.participants p WHERE p.userId = :userId")
         List<Expense> findExpensesByUserId(@Param("userId") Long userId);
 

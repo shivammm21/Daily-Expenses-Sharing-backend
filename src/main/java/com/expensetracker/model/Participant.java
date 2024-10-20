@@ -10,7 +10,6 @@ public class Participant {
     private BigDecimal amount;  // The split amount
     private Integer percentage; // Percentage of the total amount
 
-    // Constructors
     public Participant() {}
 
     public Participant(Long userId, Integer percentage) {
@@ -24,7 +23,6 @@ public class Participant {
         this.percentage = percentage;
     }
 
-    // Getters and Setters
     public Long getUserId() {
         return userId;
     }
@@ -49,7 +47,6 @@ public class Participant {
         this.percentage = percentage;
     }
 
-    // toString Method
     @Override
     public String toString() {
         return "Participant{" +

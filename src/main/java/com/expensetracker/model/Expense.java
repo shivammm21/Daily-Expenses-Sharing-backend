@@ -31,12 +31,10 @@ public class Expense {
     @ElementCollection
     @CollectionTable(name = "expense_participants", joinColumns = @JoinColumn(name = "expense_id"))
     private List<Participant> participants;
-    // List of user IDs or names
 
     @Enumerated(EnumType.STRING)
     private SplitMethod splitMethod;
 
-    // Constructors
     public Expense() {
     }
 
@@ -48,7 +46,6 @@ public class Expense {
         this.splitMethod = splitMethod;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -97,7 +94,6 @@ public class Expense {
         this.splitMethod = splitMethod;
     }
 
-    // toString Method
     @Override
     public String toString() {
         return "Expense{" +

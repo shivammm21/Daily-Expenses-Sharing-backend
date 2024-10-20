@@ -22,9 +22,6 @@ public class PageController {
     @Autowired
     private ExpenseService expenseService;
 
-    // ====================== User Endpoints ======================
-
-    // Create a new user
     @PostMapping("/users")
     public ResponseEntity<String> createUser(@RequestBody User user) {
         if (userService.createUser(user)) {
@@ -33,7 +30,6 @@ public class PageController {
         return new ResponseEntity<>("User creation failed!", HttpStatus.BAD_REQUEST);
     }
 
-    // Retrieve user details by ID
     @GetMapping("/users/{userId}")
     public ResponseEntity<User> getUserById(@PathVariable Long userId) {
         User user = userService.getUserById(userId);
@@ -43,9 +39,6 @@ public class PageController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // ====================== Expense Endpoints ======================
-
-    // Add a new expense
     @PostMapping("/expenses")
     public ResponseEntity<Expense> addExpense(@RequestBody Expense expense) {
         Expense savedExpense = expenseService.addExpense(expense);
@@ -55,7 +48,6 @@ public class PageController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    // Retrieve expenses for a specific user
     @GetMapping("/expenses/{userId}")
     public ResponseEntity<List<Expense>> getUserExpenses(@PathVariable Long userId) {
         List<Expense> expenses = expenseService.getExpensesByUserId(userId);
@@ -65,7 +57,6 @@ public class PageController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Retrieve overall expenses (all users)
     @GetMapping("/expenses")
     public ResponseEntity<List<Expense>> getAllExpenses() {
         List<Expense> expenses = expenseService.getAllExpenses();
@@ -73,7 +64,6 @@ public class PageController {
     }
 
     /*
-    // Download balance sheet as a CSV file
     @GetMapping("/balancesheet")
     public ResponseEntity<byte[]> downloadBalanceSheet() {
         byte[] csvData = expenseService.generateBalanceSheetCSV();

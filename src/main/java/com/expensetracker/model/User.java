@@ -28,7 +28,6 @@ public class User {
     @Column(unique = true)
     private String mobileNumber;
 
-    // Constructors
     public User() {
     }
 
@@ -38,7 +37,6 @@ public class User {
         this.mobileNumber = mobileNumber;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -71,7 +69,6 @@ public class User {
         this.mobileNumber = mobileNumber;
     }
 
-    // toString Method
     @Override
     public String toString() {
         return "User{" +
